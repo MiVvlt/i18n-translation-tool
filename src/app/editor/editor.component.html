@@ -1,0 +1,31 @@
+<div class="container pt-4">
+
+
+
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card" *ngFor="let field of formFields">
+        <div class="card-body">
+          <h5 class="card-title">
+            <label for="{{field.parent}}">{{field.parent}}</label>
+          </h5>
+          <p id="{{field.parent}}Help" class="card-text">ORIGINAL: <br> {{field.value}}</p>
+          <textarea type="text"
+                    class="form-control"
+                    id="{{field.parent}}"
+                    attr.aria-describedby="{{field.parent}}Help"
+                    [(ngModel)]="field.translation"
+                    placeholder="No translation"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <button routerLink="/input-screen" class="btn btn-danger w-100">Back to file input</button>
+      <button (click)="createFile()" class="btn btn-success w-100">Export to translation file</button>
+      <button (click)="createProjectFile()" class="btn btn-success w-100">Export to project file</button>
+      <button (click)="saveProject()" class="btn btn-success w-100">Save project</button>
+      <button routerLink="/input-screen" class="btn btn-danger w-100">Clear saved data</button>
+    </div>
+  </div>
+
+</div>
